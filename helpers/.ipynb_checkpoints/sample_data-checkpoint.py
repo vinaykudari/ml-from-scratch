@@ -6,6 +6,7 @@ def linear_data(
     noise=10,
     seed=0,
 ):
+    np.random.seed(seed)
     coef = [np.random.randint(0, 9)]
     x = np.random.rand(n_samples, n_features)
     y = coef[-1] * x 
@@ -20,6 +21,7 @@ def non_linear_data(
     seed=0,
     degree=3
 ):
+    np.random.seed(seed)
     coef = []
     y = 0
     x = np.random.rand(n_samples, n_features)
