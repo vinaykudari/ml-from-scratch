@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.datasets import make_classification
 
 def linear_data(
     n_samples,
@@ -31,3 +32,27 @@ def non_linear_data(
         y += coef[-1] * (x ** i)
     
     return x, y, coef
+
+
+def classification_data(
+    n_samples,
+    n_features=3,
+    n_classes=3,
+    seed=0,
+):
+    x, y = make_classification(
+        n_samples=n_samples,
+        n_features=n_features,
+        n_informative=n_features,
+        n_redundant=0,
+        n_repeated=0,
+        n_classes=n_classes,
+        n_clusters_per_class=1,
+        class_sep=n_classes,
+        flip_y=0,
+        random_state=seed,
+    )
+    
+    return x, y
+
+
